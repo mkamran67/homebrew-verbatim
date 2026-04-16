@@ -5,16 +5,10 @@ class VerbatimVulkan < Formula
   license "MIT"
 
   depends_on :linux
+  depends_on arch: :x86_64
 
-  on_linux do
-    if Hardware::CPU.arm?
-      url "https://github.com/mkamran67/homebrew-verbatim/releases/download/v#{version}/verbatim-#{version}-linux-arm64-vulkan.tar.gz"
-      sha256 "REPLACE_WITH_LINUX_ARM64_VULKAN_SHA256"
-    else
-      url "https://github.com/mkamran67/homebrew-verbatim/releases/download/v#{version}/verbatim-#{version}-linux-amd64-vulkan.tar.gz"
-      sha256 "REPLACE_WITH_LINUX_AMD64_VULKAN_SHA256"
-    end
-  end
+  url "https://github.com/mkamran67/homebrew-verbatim/releases/download/v#{version}/verbatim-#{version}-linux-amd64-vulkan.tar.gz"
+  sha256 "bfb8eb17e812185c53dbff28f4fa1cda32eede681b5f32df60d6bb4c6d4f58d3"
 
   conflicts_with "verbatim", because: "both install the `verbatim` binary"
   conflicts_with "verbatim-cuda", because: "both install the `verbatim` binary"

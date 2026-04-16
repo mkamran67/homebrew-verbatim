@@ -5,23 +5,15 @@ class Verbatim < Formula
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/mkamran67/homebrew-verbatim/releases/download/v#{version}/verbatim-#{version}-macos-arm64.tar.gz"
-      sha256 "REPLACE_WITH_MACOS_ARM64_SHA256"
-    else
-      url "https://github.com/mkamran67/homebrew-verbatim/releases/download/v#{version}/verbatim-#{version}-macos-x86_64.tar.gz"
-      sha256 "REPLACE_WITH_MACOS_X86_64_SHA256"
-    end
+    depends_on arch: :arm64
+    url "https://github.com/mkamran67/homebrew-verbatim/releases/download/v#{version}/verbatim-#{version}-macos-arm64.tar.gz"
+    sha256 "REPLACE_WITH_MACOS_ARM64_SHA256"
   end
 
   on_linux do
-    if Hardware::CPU.arm?
-      url "https://github.com/mkamran67/homebrew-verbatim/releases/download/v#{version}/verbatim-#{version}-linux-arm64-cpu.tar.gz"
-      sha256 "REPLACE_WITH_LINUX_ARM64_CPU_SHA256"
-    else
-      url "https://github.com/mkamran67/homebrew-verbatim/releases/download/v#{version}/verbatim-#{version}-linux-amd64-cpu.tar.gz"
-      sha256 "REPLACE_WITH_LINUX_AMD64_CPU_SHA256"
-    end
+    depends_on arch: :x86_64
+    url "https://github.com/mkamran67/homebrew-verbatim/releases/download/v#{version}/verbatim-#{version}-linux-amd64-cpu.tar.gz"
+    sha256 "8300475934ac95bde0ffa81720137a6be5db01a04fe5ba8038e445ec418e2757"
   end
 
   conflicts_with "verbatim-cuda", because: "both install the `verbatim` binary"
