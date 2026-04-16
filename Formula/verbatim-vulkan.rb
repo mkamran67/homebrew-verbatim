@@ -7,7 +7,7 @@ class VerbatimVulkan < Formula
   depends_on :linux
   depends_on arch: :x86_64
 
-  url "https://github.com/mkamran67/homebrew-verbatim/releases/download/v#{version}/verbatim-#{version}-linux-amd64-vulkan.tar.gz"
+  url "https://github.com/mkamran67/verbatim/releases/download/First-Stable-Release/verbatim-#{version}-linux-amd64-vulkan.tar.gz"
   sha256 "bfb8eb17e812185c53dbff28f4fa1cda32eede681b5f32df60d6bb4c6d4f58d3"
 
   conflicts_with "verbatim", because: "both install the `verbatim` binary"

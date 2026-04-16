@@ -7,7 +7,7 @@ class VerbatimCuda < Formula
   depends_on :linux
   depends_on arch: :x86_64
 
-  url "https://github.com/mkamran67/homebrew-verbatim/releases/download/v#{version}/verbatim-#{version}-linux-amd64-cuda.tar.gz"
+  url "https://github.com/mkamran67/verbatim/releases/download/First-Stable-Release/verbatim-#{version}-linux-amd64-cuda.tar.gz"
   sha256 "94709d588bb5655c9aa86bf8d513b3b010171e582cf5ce44c7efe42401f06a30"
 
   conflicts_with "verbatim", because: "both install the `verbatim` binary"

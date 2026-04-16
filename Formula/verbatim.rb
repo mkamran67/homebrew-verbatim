@@ -6,13 +6,13 @@ class Verbatim < Formula
 
   on_macos do
     depends_on arch: :arm64
-    url "https://github.com/mkamran67/homebrew-verbatim/releases/download/v#{version}/verbatim-#{version}-macos-arm64.tar.gz"
+    url "https://github.com/mkamran67/verbatim/releases/download/First-Stable-Release/verbatim-#{version}-macos-arm64.tar.gz"
     sha256 "REPLACE_WITH_MACOS_ARM64_SHA256"
   end
 
   on_linux do
     depends_on arch: :x86_64
-    url "https://github.com/mkamran67/homebrew-verbatim/releases/download/v#{version}/verbatim-#{version}-linux-amd64-cpu.tar.gz"
+    url "https://github.com/mkamran67/verbatim/releases/download/First-Stable-Release/verbatim-#{version}-linux-amd64-cpu.tar.gz"
     sha256 "8300475934ac95bde0ffa81720137a6be5db01a04fe5ba8038e445ec418e2757"
   end
 
