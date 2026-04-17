@@ -22,6 +22,10 @@ class Verbatim < Formula
   def install
     bin.install "verbatim"
     on_linux do
+      # Rewrite Exec= to an absolute path so minimal graphical sessions
+      # (Hyprland, i3, etc.) whose launcher environment doesn't include
+      # Linuxbrew's bin can still find the binary.
+      inreplace "verbatim.desktop", /^Exec=.*/, "Exec=#{opt_bin}/verbatim"
       (share/"applications").install "verbatim.desktop"
       (share/"icons/hicolor/512x512/apps").install "verbatim.png"
     end
