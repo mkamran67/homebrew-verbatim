@@ -8,13 +8,15 @@ class VerbatimVulkan < Formula
   depends_on arch: :x86_64
 
   url "https://github.com/mkamran67/verbatim/releases/download/First-Stable-Release/verbatim-#{version}-linux-amd64-vulkan.tar.gz"
-  sha256 "bfb8eb17e812185c53dbff28f4fa1cda32eede681b5f32df60d6bb4c6d4f58d3"
+  sha256 "3d766f00ac91996c2878904cb8ebcc771a2d18936af3f973749e93a60f7fa82a"
 
   conflicts_with "verbatim", because: "both install the `verbatim` binary"
   conflicts_with "verbatim-cuda", because: "both install the `verbatim` binary"
 
   def install
     bin.install "verbatim"
+    (share/"applications").install "verbatim.desktop"
+    (share/"icons/hicolor/512x512/apps").install "verbatim.png"
   end
 
   def caveats
@@ -22,6 +24,13 @@ class VerbatimVulkan < Formula
       You must be in the 'input' group for the global hotkey:
         sudo usermod -aG input $USER
       Then log out and back in.
+
+      To show Verbatim in your application launcher:
+        mkdir -p ~/.local/share/applications ~/.local/share/icons/hicolor/512x512/apps
+        ln -sf #{opt_share}/applications/verbatim.desktop ~/.local/share/applications/
+        ln -sf #{opt_share}/icons/hicolor/512x512/apps/verbatim.png \\
+               ~/.local/share/icons/hicolor/512x512/apps/
+        update-desktop-database ~/.local/share/applications 2>/dev/null || true
 
       Vulkan build installed. GPU drivers required at runtime:
         NVIDIA: nvidia-driver-* + libvulkan1

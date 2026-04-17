@@ -13,7 +13,7 @@ class Verbatim < Formula
   on_linux do
     depends_on arch: :x86_64
     url "https://github.com/mkamran67/verbatim/releases/download/First-Stable-Release/verbatim-#{version}-linux-amd64-cpu.tar.gz"
-    sha256 "8300475934ac95bde0ffa81720137a6be5db01a04fe5ba8038e445ec418e2757"
+    sha256 "0e896486fa2d08a1c9210c248e45baa1f0229434cd177da8b0d96a6cfbe84833"
   end
 
   conflicts_with "verbatim-cuda", because: "both install the `verbatim` binary"
@@ -21,6 +21,10 @@ class Verbatim < Formula
 
   def install
     bin.install "verbatim"
+    on_linux do
+      (share/"applications").install "verbatim.desktop"
+      (share/"icons/hicolor/512x512/apps").install "verbatim.png"
+    end
   end
 
   def caveats
@@ -38,6 +42,13 @@ class Verbatim < Formula
         You must be in the 'input' group for the global hotkey:
           sudo usermod -aG input $USER
         Then log out and back in.
+
+        To show Verbatim in your application launcher:
+          mkdir -p ~/.local/share/applications ~/.local/share/icons/hicolor/512x512/apps
+          ln -sf #{opt_share}/applications/verbatim.desktop ~/.local/share/applications/
+          ln -sf #{opt_share}/icons/hicolor/512x512/apps/verbatim.png \\
+                 ~/.local/share/icons/hicolor/512x512/apps/
+          update-desktop-database ~/.local/share/applications 2>/dev/null || true
 
         CPU build installed. For GPU acceleration:
           brew install mkamran67/verbatim/verbatim-cuda    # NVIDIA
